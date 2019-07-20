@@ -5,6 +5,7 @@ pipeline {
         choice(choices: ['TestScript1', 'TestScript2'], description: 'Script to Run', name: 'script')
         string(name: 'db-url', defaultValue: "postgresql-db-url", description: 'Database URL')
         string(name: 'db-schema', defaultValue: "postgresql-db-schema", description: 'Database Schema')
+        password(name: 'db-password', defaultValue: '', description: 'Database Password')
     }
 
     stages {
