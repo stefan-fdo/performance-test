@@ -7,7 +7,7 @@ pipeline {
                 expression { myScript == 'TestScript1' }
             }
             steps {
-                sh './gradlew performance-test-script:runTestScript'
+                sh './gradlew performance-test-script:runTestScript1'
             }
         }
 
