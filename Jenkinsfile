@@ -1,14 +1,12 @@
 pipeline {
-    agent none
+    agent any()
 
     stages {
         stage ('Input') {
-            agent none
             steps {
                 script {
                     myStage = input message: 'Select the script to run', parameters: [choice(choices: 'TestScript1\nTestScript2', description: 'Script', name: 'Script')]
                 }
-                echo myStage
             }
         }
 
@@ -17,7 +15,7 @@ pipeline {
                 expression { myStage == 'TestScript1' }
             }
             steps {
-                echo "Running Stage1"
+                sh './gradlew performance-test-script:runTestScript'
             }
         }
 
@@ -26,7 +24,7 @@ pipeline {
                 expression { myStage == 'TestScript2' }
             }
             steps {
-                echo "Running Stage2"
+                sh './gradlew performance-test-script:runTestScript2'
             }
         }
     }
