@@ -16,8 +16,16 @@ dependencies {
 
 task runTestScript(type: JavaExec) {
     description 'Run Test Script'
-    
+
     main = 'io.stefan.performance_test.TestScript'
-    
+
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runTestScript2(type: JavaExec) {
+    description 'Run Test Script'
+
+    main = 'io.stefan.performance_test.TestScript2'
+
     classpath = sourceSets.main.runtimeClasspath
 }
