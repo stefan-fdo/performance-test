@@ -2,14 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage ('Input') {
-            steps {
-                script {
-                    myStage = input message: 'Select the script to run', parameters: [choice(choices: 'TestScript1\nTestScript2', description: 'Script', name: 'Script')]
-                }
-            }
-        }
-
         stage('TestScript1') {
             when {
                 expression { myScript == 'TestScript1' }
