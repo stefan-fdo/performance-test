@@ -12,7 +12,7 @@ pipeline {
 
         stage('TestScript1') {
             when {
-                expression { myStage == 'TestScript1' }
+                expression { myScript == 'TestScript1' }
             }
             steps {
                 sh './gradlew performance-test-script:runTestScript'
@@ -21,7 +21,7 @@ pipeline {
 
         stage('TestScript2') {
             when {
-                expression { myStage == 'TestScript2' }
+                expression { myScript == 'TestScript2' }
             }
             steps {
                 sh './gradlew performance-test-script:runTestScript2'
